@@ -15,7 +15,7 @@ function cenario() {
   x += 3;
   translate(-x, 0);
   background(220);
-  var altura = random(50,250);
+  var altura = 175; //random(50,250);
   var distancia = 175;
   for(var a = 1; a<=250; a++){
     rect(300 + distancia*a, altura+90, 30, 300);
