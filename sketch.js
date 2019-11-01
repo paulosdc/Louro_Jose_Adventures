@@ -1,38 +1,46 @@
-var x = 0, y = 150, up = false, altM, vivo = true;
+var x = 0, y = 150, up = false, altMaxima, vivo = true;
+var velocidadeX, velocidadeY, barras, distancia, altura = [];
 
-function setup() {
-  createCanvas(600, 400);
+for(var i = 0; i<4; i++) {
+  altura[i] = Math.random() * (250 - 50) + 50;
 }
 
 function keyPressed() {
   if (keyCode === UP_ARROW) {
     up = true;
-    altM = y - 40;
+    altMaxima = y - 40;
   }
 }
 
 function cenario() {
-  x += 3;
+  x += velocidadeX;
   translate(-x, 0);
   background(220);
-  var altura = 175; //random(50,250);
-  var distancia = 175;
-  for(var a = 1; a<=250; a++){
-    rect(300 + distancia*a, altura+90, 30, 300);
-    rect(300 + distancia*a, -1, 30, altura);
+  for(var a = 0; a<=barras; a=a+4){
+    rect(300 + distancia*a, altura[0]+90, 30, 300);
+    rect(300 + distancia*a, -1, 30, altura[0]);
+    
+    rect(300 + distancia*(a+1), altura[1]+90, 30, 300);
+    rect(300 + distancia*(a+1), -1, 30, altura[1]);
+    
+    rect(300 + distancia*(a+2), altura[2]+90, 30, 300);
+    rect(300 + distancia*(a+2), -1, 30, altura[2]);
+    
+    rect(300 + distancia*(a+3), altura[3]+90, 30, 300);
+    rect(300 + distancia*(a+3), -1, 30, altura[3]); 
   }
 }
 
 function movimentacao() {
   if (up == true)  {
-    y-=4;
-    if (y == altM) {
+    y-=velocidadeY;
+    if (y == altMaxima) {
       up = false;
     }
   }
   if (up == false)  {
     if (y  != 380) {
-      y+=2;
+      y+=(velocidadeY/2);
     }
   }
 }
@@ -44,11 +52,29 @@ function estado() {
   return vivo;
 }
 
+function setup() {
+  createCanvas(600, 400);
+}
+
 function draw() {
   cenario();
   movimentacao();
-  if (estado() == false) {
-    
-  }
   ellipse(x+60, y,40,40);
 }
+
+function selectLevel() {
+  nivel = parseInt(prompt("Nivel 1 (facil) ou 2 (dificil): "));
+  if (nivel == 1) {
+    velocidadeX = 3;
+    velocidadeY = 4;
+    barras = 200;
+    distancia = 175;
+  } else if ((nivel == 2)) {
+
+  } else {
+    selectLevel();
+  }
+}
+
+selectLevel();
+draw();
