@@ -5,6 +5,7 @@ for (var i = 0; i < 4; i++) {
   altura[i] = Math.random() * (250 - 50) + 50;
 }
 
+
 function keyPressed() {
   if (keyCode === UP_ARROW) {
     up = true;
@@ -19,8 +20,10 @@ function setup() {
 function draw() {
   cenario();
   movimentacao();
-  fill(50);
   info();
+  estado();
+  //randomAlt();
+  fill(50);
   ellipse(x + 60, y, 40, 40);
 }
 

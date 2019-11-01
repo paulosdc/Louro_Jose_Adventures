@@ -13,8 +13,11 @@ const movimentacao = function () {
 }
 
 const estado = function () {
-  if (y == 20 || y == 380) {
-    vivo = false;
+  if (y <= 20 || y == 380) {
+    velocidadeX = 0;
+    velocidadeY = 0;
+    fill("#000000");
+    textSize(80);
+    text("Morreu", x+180, 210);
   }
-  return vivo;
 }
