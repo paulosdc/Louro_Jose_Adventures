@@ -22,7 +22,7 @@ function draw() {
   movimentacao();
   info();
   estado();
-  //randomAlt();
+  randomAlt();
   fill(50);
   ellipse(x + 60, y, 40, 40);
 }
