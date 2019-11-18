@@ -1,4 +1,4 @@
-const selectLevel = function () {
+/*const selectLevel = function () {
     alert("Selecione um nível a seguir antes de iniciar o jogo!");
     nivel = parseInt(prompt("*Nível 1: Muito fácil\n*Nível 2: Fácil\n*Nível 3: Médio\n*Nível 4: Difícil\n*Nível 5: Muito difícil"));
     if (nivel == 1) {
@@ -29,7 +29,7 @@ const selectLevel = function () {
     if(nivel == null) {
         selectLevel();
     }
-}
+}*/
 
 const cenario = function () {
     x += velocidadeX;

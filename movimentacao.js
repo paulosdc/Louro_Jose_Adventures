@@ -19,6 +19,8 @@ const estado = function () {
     fill("#000000");
     textSize(80);
     text("Morreu", x+180, 210);
+    //tem que colocar algo para fazer aparecer "morreu" durante um tempo antes de reiniciar;
+    modo = 0;
   }
 }
 
