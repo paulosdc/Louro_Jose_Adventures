@@ -55,19 +55,24 @@ const cenario = function () {
 }
 
 const obstaculos = function () {
-    rect(300 + distancia, altura[0] + 100, 30, 300, 100); //de baixo
-    rect(300 + distancia, -15, 30, altura[0], 100); //de cima
-    rect(300 + distancia*2, altura[1] + 100, 30, 300, 100);
-    rect(300 + distancia*2, -15, 30, altura[1], 100);
-    rect(300 + distancia*3, altura[2] + 100, 30, 300, 100);
-    rect(300 + distancia*3, -15, 30, altura[2], 100);
-    rect(300 + distancia*4, altura[3] + 100, 30, 300, 100);
-    rect(300 + distancia*4, -15, 30, altura[3], 100);
+    x += velocidadeX;
+    rect(300 + distancia - x, altura[0] + 100, 30, 300, 100); //de baixo
+    rect(300 + distancia - x, -15, 30, altura[0], 100); //de cima
+    rect(300 + distancia * 2 - x, altura[1] + 100, 30, 300, 100);
+    rect(300 + distancia * 2 - x, -15, 30, altura[1], 100);
+    rect(300 + distancia * 3 - x, altura[2] + 100, 30, 300, 100);
+    rect(300 + distancia * 3 - x, -15, 30, altura[2], 100);
+    rect(300 + distancia * 4 - x, altura[3] + 100, 30, 300, 100);
+    rect(300 + distancia * 4 - x, -15, 30, altura[3], 100);
 }
 
 const colisao = function () {
-    hit[0] = collideRectCircle(300 + distancia, altura[0] + 100, 30, 300, x + 60, y, 40);
-    hit[1] = collideRectCircle(300 + distancia, -15, 30, altura[0], x + 60, y, 40);
-    hit[2] = collideRectCircle(300 + distancia*2, altura[1] + 100, 30, 300, x + 60, y, 40);
-    hit[3] = collideRectCircle(300 + distancia*2, -15, 30, altura[1], x + 60, y, 40);
+    hit[0] = collideRectCircle(300 + distancia - x, altura[0] + 100, 30, 300, 60, y, 40, 40);
+    hit[1] = collideRectCircle(300 + distancia - x, -15, 30, altura[0], 60, y, 40, 40);
+    hit[2] = collideRectCircle(300 + distancia * 2 - x, altura[1] + 100, 30, 300, 60, y, 40, 40);
+    hit[3] = collideRectCircle(300 + distancia * 2 - x, -15, 30, altura[1], 60, y, 40, 40);
+    hit[4] = collideRectCircle(300 + distancia * 3 - x, altura[2] + 100, 30, 300, 60, y, 40, 40);
+    hit[5] = collideRectCircle(300 + distancia * 3 - x, -15, 30, altura[2], 60, y, 40, 40);
+    hit[6] = collideRectCircle(300 + distancia * 4 - x, altura[3] + 100, 30, 300, 60, y, 40, 40);
+    hit[7] = collideRectCircle(300 + distancia * 4 - x, -15, 30, altura[3], 60, y, 40, 40);
 }

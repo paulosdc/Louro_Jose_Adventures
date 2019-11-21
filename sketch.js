@@ -7,7 +7,7 @@ for (var i = 0; i < 4; i++) {
   altura[i] = Math.random() * (250 - 50) + 50;
 }
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 8; i++) {
   hit[i] = false;
 }
 
@@ -45,7 +45,8 @@ function draw() {
     info();
     estado();
     colisao();
-    image(imgLoro, x+60, y, 40, 40);
+    //ellipse(60, y, 40, 40);
+    image(imgLoro, 60, y, 40, 40);
   }
 }
 
