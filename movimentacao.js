@@ -16,24 +16,28 @@ const estado = function () {
   if (y <= 20 || y == 380 || hit == true) {
     velocidadeX = 0;
     velocidadeY = 0;
+    vivo = false;
     fill("#000000");
     textSize(80);
-    text("Morreu", x+180, 210);
-    //tem que colocar algo para fazer aparecer "morreu" durante um tempo antes de reiniciar;
-    modo = 0;
+    text("Morreu", x + 180, 210);
+    textSize(20);
+    text("Pontuação: " + numBarras, x + 245, 230);
+    textSize(20);
+    text("Pressione 1 para jogar novamente", x + 120, 380);
   }
 }
 
 const info = function () {
   fill(50);
   textSize(10);
-  var numBarras = parseInt(x / (distancia+20));
-  text("Número de barras: " + (numBarras), x + 30, 50);
-  text("Dificildade: "+ nivel, x + 30, 40);
+  numBarras = parseInt(x / (distancia + 20));
+  text("Número de barras: " + (numBarras), x + 30, 40);
+  text("Dificildade: " + nivel, x + 30, 30);
   if (mouseIsPressed) {
-      textSize(10);
-      text("Use a seta para cima" + "\n" + "para mover o personagem", x + 460, 30);
+    textSize(10);
+    text("Use a seta para cima para" + "\n" + "    mover o personagem", x + 460, 30);
   } else {
-      text("INFO", x + 480, 37.5);
+    textSize(20);
+    text("INFO", x + 500, 37.5);
   }
 }

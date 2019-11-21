@@ -1,35 +1,52 @@
-/*const selectLevel = function () {
-    alert("Selecione um nível a seguir antes de iniciar o jogo!");
-    nivel = parseInt(prompt("*Nível 1: Muito fácil\n*Nível 2: Fácil\n*Nível 3: Médio\n*Nível 4: Difícil\n*Nível 5: Muito difícil"));
-    if (nivel == 1) {
-        velocidadeX = 3;
-        velocidadeY = 4;
-        barras = 100;
+const selectLevel = function () {
+    keyTyped();
+}
+
+function keyTyped() {
+    if (modo != 1) {
+        if (key === '1') {
+            modo = 1;
+            nivel = 1;
+            velocidadeX = 3;
+            velocidadeY = 4;
+            barras = 100;
+        }
+        if (key === '2') {
+            modo = 1;
+            nivel = 2;
+            velocidadeX = 4;
+            velocidadeY = 4;
+            barras = 125;
+        }
+        if (key === '3') {
+            modo = 1;
+            nivel = 3;
+            velocidadeX = 5;
+            velocidadeY = 4;
+            barras = 150;
+        }
+        if (key === '4') {
+            modo = 1;
+            nivel = 4;
+            velocidadeX = 6;
+            velocidadeY = 4;
+            barras = 175;
+        }
+        if (key === '5') {
+            modo = 1;
+            nivel = 5;
+            velocidadeX = 6.5;
+            velocidadeY = 4;
+            barras = 200;
+        }
     }
-    if (nivel == 2) {
-        velocidadeX = 4;
-        velocidadeY = 4;
-        barras = 125;
+    if (vivo == false) {
+        if (key == '1') {
+            modo = 0;
+            window.location.reload(true); 
+        }
     }
-    if (nivel == 3) {
-        velocidadeX = 5;
-        velocidadeY = 4;
-        barras = 150;
-    }
-    if (nivel == 4) {
-        velocidadeX = 6;
-        velocidadeY = 4;
-        barras = 175;
-    }
-    if (nivel == 5) {
-        velocidadeX = 6.5;
-        velocidadeY = 4;
-        barras = 200;
-    }
-    if(nivel == null) {
-        selectLevel();
-    }
-}*/
+}
 
 const cenario = function () {
     x += velocidadeX;
@@ -50,11 +67,10 @@ const obstaculos = function (aux) {
     rect(300 + distancia * (aux + 2), -15, 30, altura[2], 100);
     rect(300 + distancia * (aux + 3), altura[3] + 100, 30, 300, 100);
     rect(300 + distancia * (aux + 3), -15, 30, altura[3], 100);
-    
 }
 
 const randomAlt = function () {
-    if (x % 400  == 0) {
+    if (x % 400 == 0) {
         altura[0] = Math.random() * (250 - 50) + 50;
     } if (x % 500 == 0) {
         altura[1] = Math.random() * (250 - 50) + 50;
