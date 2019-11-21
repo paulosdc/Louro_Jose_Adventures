@@ -1,5 +1,5 @@
-var x = 0, y = 150, up = false, altMaxima, vivo = true;
-var velocidadeX, velocidadeY, barras, distancia = 175, altura = [], hit = false;
+var x = 0, y = 150, up = false, altMaxima = 0, vivo = true;
+var velocidadeX, velocidadeY, distancia = 175, altura = [], hit = false;
 let imgLoro, imgMenu;
 var modo, nivel, numBarras = 0;
 
@@ -18,7 +18,7 @@ function preload() {
 
 function setup() {
   modo = 0;
-  createCanvas(600, 400);
+  createCanvas(1400, 400);
   frameRate(60);
 }
 
@@ -40,10 +40,8 @@ function draw() {
     movimentacao();
     info();
     estado();
-    randomAlt();
-    image(imgLoro, x + 60, y, 40, 40);
+    image(imgLoro, x+60, y, 40, 40);
   }
-  
 }
 
 selectLevel();
