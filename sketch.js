@@ -1,10 +1,14 @@
 var x = 0, y = 150, up = false, altMaxima = 0, vivo = true;
-var velocidadeX, velocidadeY, distancia = 175, altura = [], hit = false;
+var velocidadeX, velocidadeY, distancia = 175, altura = [], hit = [];
 let imgLoro, imgMenu;
 var modo, nivel, numBarras = 0;
 
 for (var i = 0; i < 4; i++) {
   altura[i] = Math.random() * (250 - 50) + 50;
+}
+
+for (var i = 0; i < 4; i++) {
+  hit[i] = false;
 }
 
 function preload() {
@@ -40,6 +44,7 @@ function draw() {
     movimentacao();
     info();
     estado();
+    colisao();
     image(imgLoro, x+60, y, 40, 40);
   }
 }

@@ -43,7 +43,7 @@ function keyTyped() {
     if (vivo == false) {
         if (key == '1') {
             modo = 0;
-            window.location.reload(true); 
+            window.location.reload(true);
         }
     }
 }
@@ -56,7 +56,18 @@ const cenario = function () {
 
 const obstaculos = function () {
     rect(300 + distancia, altura[0] + 100, 30, 300, 100); //de baixo
-    hit = (300 + distancia, altura[0] + 100, 30, 300, x+60, y, 40);
-    rect(300 + distancia, -15, 30, altura[0], 100); //de cima  
-    hit = (300 + distancia, -15, 30, altura[0], x+60, y, 40);
+    rect(300 + distancia, -15, 30, altura[0], 100); //de cima
+    rect(300 + distancia*2, altura[1] + 100, 30, 300, 100);
+    rect(300 + distancia*2, -15, 30, altura[1], 100);
+    rect(300 + distancia*3, altura[2] + 100, 30, 300, 100);
+    rect(300 + distancia*3, -15, 30, altura[2], 100);
+    rect(300 + distancia*4, altura[3] + 100, 30, 300, 100);
+    rect(300 + distancia*4, -15, 30, altura[3], 100);
+}
+
+const colisao = function () {
+    hit[0] = collideRectCircle(300 + distancia, altura[0] + 100, 30, 300, x + 60, y, 40);
+    hit[1] = collideRectCircle(300 + distancia, -15, 30, altura[0], x + 60, y, 40);
+    hit[2] = collideRectCircle(300 + distancia*2, altura[1] + 100, 30, 300, x + 60, y, 40);
+    hit[3] = collideRectCircle(300 + distancia*2, -15, 30, altura[1], x + 60, y, 40);
 }
