@@ -80,3 +80,14 @@ const randomAlt = function () {
         altura[3] = Math.random() * (250 - 50) + 50;
     }
 }
+
+const colisao = function () {
+    hit[0] = collideRectCircle(300 + distancia, altura[0] + 100, 30, 300, x + 60, y, 40);
+    hit[1] = collideRectCircle(300 + distancia, -15, 30, altura[0], x + 60, y, 40);
+    hit[2] = collideRectCircle(300 + distancia*2, altura[1] + 100, 30, 300, x + 60, y, 40);
+    hit[3] = collideRectCircle(300 + distancia*2, -15, 30, altura[1], x + 60, y, 40);
+    hit[4] = collideRectCircle(300 + distancia*3, altura[2] + 100, 30, 300, x + 60, y, 40);
+    hit[5] = collideRectCircle(300 + distancia*3, -15, 30, altura[2], x + 60, y, 40);
+    hit[6] = collideRectCircle(300 + distancia*4, altura[3] + 100, 30, 300, x + 60, y, 40);
+    hit[7] = collideRectCircle(300 + distancia*4, -15, 30, altura[3], x + 60, y, 40);
+}

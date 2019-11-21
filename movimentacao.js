@@ -13,7 +13,14 @@ const movimentacao = function () {
 }
 
 const estado = function () {
-  if (y <= 20 || y == 380 || hit == true) {
+  var bateu = 0;
+  for (var i = 0; i < 8; i++) {
+    if (hit[i] == true) {
+      bateu = 1;
+      break;
+    }
+  }
+  if (y <= 20 || y == 380 || bateu == 1) {
     velocidadeX = 0;
     velocidadeY = 0;
     vivo = false;
