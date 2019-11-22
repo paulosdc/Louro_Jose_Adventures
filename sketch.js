@@ -1,7 +1,8 @@
-var x = 0, y = 150, up = false, altMaxima, vivo = true;
-var velocidadeX, velocidadeY, barras, distancia = 175, altura = [], hit = [];
-let imgLoro, imgMenu;
+var x = 0, y = 150, up = false, altMaxima = 0, vivo = true;
+var velocidadeX, velocidadeY, altura = [], hit = [], posX = [495, 670, 845, 1020];
+let imgLoro, imgMenu, imgFundo;
 var modo, nivel, numBarras = 0;
+var fonte;
 
 for (var i = 0; i < 4; i++) {
   altura[i] = Math.random() * (250 - 50) + 50;
@@ -18,6 +19,8 @@ function preload() {
     imgLoro = loadImage('https://raw.githubusercontent.com/nstx/LOP/master/louro2.png');
   }
   imgMenu = loadImage('https://raw.githubusercontent.com/nstx/LOP/master/menu1.jpg');
+  imgFundo = loadImage('https://raw.githubusercontent.com/nstx/LOP/master/Sem-T%C3%ADtulo-1.jpg');
+  fonte = loadFont('https://raw.githubusercontent.com/nstx/LOP/master/Inconsolata-Bold.ttf');
 }
 
 function setup() {
@@ -44,11 +47,10 @@ function draw() {
     movimentacao();
     info();
     estado();
-    randomAlt();
     colisao();
-    image(imgLoro, x + 60, y, 40, 40);
+    //ellipse(60, y, 40, 40);
+    image(imgLoro, 60, y, 40, 40);
   }
-  
 }
 
 selectLevel();
