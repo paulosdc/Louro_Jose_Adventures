@@ -49,30 +49,50 @@ function keyTyped() {
 }
 
 const cenario = function () {
-    background(220);
+    background(imgFundo);
     fill(150);
     obstaculos();
 }
 
 const obstaculos = function () {
-    x += velocidadeX;
-    rect(300 + distancia - x, altura[0] + 100, 30, 300, 100); //de baixo
-    rect(300 + distancia - x, -15, 30, altura[0], 100); //de cima
-    rect(300 + distancia * 2 - x, altura[1] + 100, 30, 300, 100);
-    rect(300 + distancia * 2 - x, -15, 30, altura[1], 100);
-    rect(300 + distancia * 3 - x, altura[2] + 100, 30, 300, 100);
-    rect(300 + distancia * 3 - x, -15, 30, altura[2], 100);
-    rect(300 + distancia * 4 - x, altura[3] + 100, 30, 300, 100);
-    rect(300 + distancia * 4 - x, -15, 30, altura[3], 100);
+    posX = [posX[0] - velocidadeX, posX[1] - velocidadeX, posX[2] - velocidadeX, posX[3] - velocidadeX];
+    fill('green');
+    rect(posX[0], altura[0] + 100, 30, 300, 100); //de baixo
+    rect(posX[0], -15, 30, altura[0], 100); //de cima
+    rect(posX[1], altura[1] + 100, 30, 300, 100);
+    rect(posX[1], -15, 30, altura[1], 100);
+    rect(posX[2], altura[2] + 100, 30, 300, 100);
+    rect(posX[2], -15, 30, altura[2], 100);
+    rect(posX[3], altura[3] + 100, 30, 300, 100);
+    rect(posX[3], -15, 30, altura[3], 100);
+    if (posX[0] <= -30) {
+        posX[0] = posX[3] + 175;
+        altura[0] = Math.random() * (250 - 50) + 50;
+    }
+    if (posX[1] <= -30) {
+        posX[1] = posX[0] + 175;
+        altura[1] = Math.random() * (250 - 50) + 50;
+    }
+    if (posX[2] <= -30) {
+        posX[2] = posX[1] + 175;
+        altura[2] = Math.random() * (250 - 50) + 50;
+    }
+    if (posX[3] <= -30) {
+        posX[3] = posX[2] + 175;
+        altura[3] = Math.random() * (250 - 50) + 50;
+    }
+    if ((posX[0] <= 60 || posX[1] <= 60 || posX[2] <= 60 || posX[3] <= 60) && vivo == true) {
+        numBarras++;
+    } 
 }
 
 const colisao = function () {
-    hit[0] = collideRectCircle(300 + distancia - x, altura[0] + 100, 30, 300, 60, y, 40, 40);
-    hit[1] = collideRectCircle(300 + distancia - x, -15, 30, altura[0], 60, y, 40, 40);
-    hit[2] = collideRectCircle(300 + distancia * 2 - x, altura[1] + 100, 30, 300, 60, y, 40, 40);
-    hit[3] = collideRectCircle(300 + distancia * 2 - x, -15, 30, altura[1], 60, y, 40, 40);
-    hit[4] = collideRectCircle(300 + distancia * 3 - x, altura[2] + 100, 30, 300, 60, y, 40, 40);
-    hit[5] = collideRectCircle(300 + distancia * 3 - x, -15, 30, altura[2], 60, y, 40, 40);
-    hit[6] = collideRectCircle(300 + distancia * 4 - x, altura[3] + 100, 30, 300, 60, y, 40, 40);
-    hit[7] = collideRectCircle(300 + distancia * 4 - x, -15, 30, altura[3], 60, y, 40, 40);
+    hit[0] = collideRectCircle(posX[0], altura[0] + 100 - 10, 30, 300, 60, y, 40);
+    hit[1] = collideRectCircle(posX[0], -15, 30, altura[0], 60, y + 10, 40);
+    hit[2] = collideRectCircle(posX[1], altura[1] + 100 - 10, 30, 300, 60, y, 40);
+    hit[3] = collideRectCircle(posX[1], -15, 30, altura[1], 60, y + 10, 40);
+    hit[4] = collideRectCircle(posX[2], altura[2] + 100 - 10, 30, 300, 60, y, 40);
+    hit[5] = collideRectCircle(posX[2], -15, 30, altura[2], 60, y + 10, 40);
+    hit[6] = collideRectCircle(posX[3], altura[3] + 100 - 10, 30, 300, 60, y, 40);
+    hit[7] = collideRectCircle(posX[3], -15, 30, altura[3], 60, y + 10, 40);
 }

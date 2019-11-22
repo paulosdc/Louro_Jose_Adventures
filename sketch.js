@@ -1,6 +1,6 @@
 var x = 0, y = 150, up = false, altMaxima = 0, vivo = true;
-var velocidadeX, velocidadeY, distancia = 175, altura = [], hit = [];
-let imgLoro, imgMenu;
+var velocidadeX, velocidadeY, altura = [], hit = [], posX = [495, 670, 845, 1020];
+let imgLoro, imgMenu, imgFundo;
 var modo, nivel, numBarras = 0;
 
 for (var i = 0; i < 4; i++) {
@@ -18,11 +18,12 @@ function preload() {
     imgLoro = loadImage('https://raw.githubusercontent.com/nstx/LOP/master/louro2.png');
   }
   imgMenu = loadImage('https://raw.githubusercontent.com/nstx/LOP/master/menu1.jpg');
+  imgFundo = loadImage('https://raw.githubusercontent.com/nstx/LOP/master/Sem-T%C3%ADtulo-1.jpg');
 }
 
 function setup() {
   modo = 0;
-  createCanvas(1400, 400);
+  createCanvas(600, 400);
   frameRate(60);
 }
 

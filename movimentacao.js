@@ -28,7 +28,7 @@ const estado = function () {
     textSize(80);
     text("Morreu", 180, 210);
     textSize(20);
-    text("Pontuação: " + numBarras, 245, 230);
+    text("Pontuação: " + parseInt(numBarras/30), 245, 230);
     textSize(20);
     text("Pressione 1 para jogar novamente", 150, 380);
   }
@@ -37,8 +37,7 @@ const estado = function () {
 const info = function () {
   fill(50);
   textSize(10);
-  //numBarras = parseInt(x / (distancia + 20));
-  text("Número de barras: " + (numBarras), 30, 40);
+  text("Número de barras: " + (parseInt(numBarras/30)), 30, 40);
   text("Dificildade: " + nivel, 30, 30);
   if (mouseIsPressed) {
     textSize(10);
