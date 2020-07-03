@@ -20,31 +20,34 @@ const estado = function () {
       break;
     }
   }
-  if (y <= 20 || y == 380 || bateu == 1) {
+  if (y <= -1 || y == 366 || bateu == 1) {
     velocidadeX = 0;
     velocidadeY = 0;
     vivo = false;
+    textFont(fonte);
     fill("#000000");
     textSize(80);
-    text("Morreu", x + 180, 210);
+    text("Morreu", 180, 210);
     textSize(20);
-    text("Pontuação: " + numBarras, x + 245, 230);
+    text("Pontuação: " + parseInt(numBarras/30), 245, 230);
     textSize(20);
-    text("Pressione 1 para jogar novamente", x + 120, 380);
+    text("Pressione 1 para jogar novamente", 150, 380);
   }
+
 }
 
+
 const info = function () {
-  fill(50);
-  textSize(10);
-  numBarras = parseInt(x / (distancia + 20));
-  text("Número de barras: " + (numBarras), x + 30, 40);
-  text("Dificildade: " + nivel, x + 30, 30);
+  textFont(fonte);
+  fill('black');
+  textSize(20);
+  text("PONTUAÇÃO: " + (parseInt(numBarras/30)), 30, 45);
+  text("DIFICULDADE: " + nivel, 30, 30);
   if (mouseIsPressed) {
     textSize(10);
-    text("Use a seta para cima para" + "\n" + "    mover o personagem", x + 460, 30);
+    text("Use a seta para cima para" + "\n" + "    mover o personagem", 460, 30);
   } else {
-    textSize(20);
-    text("INFO", x + 500, 37.5);
+    textSize(25);
+    text("INFO", 500, 37.5);
   }
 }
